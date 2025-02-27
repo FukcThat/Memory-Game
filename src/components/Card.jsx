@@ -1,7 +1,7 @@
 import Tilt from "react-parallax-tilt";
 import "./styles/Card.css";
 
-function Card({ character }) {
+export default function Card({ character }) {
   return (
     <Tilt
       glareEnable={true}
@@ -17,5 +17,3 @@ function Card({ character }) {
     </Tilt>
   );
 }
-
-export default Card;
