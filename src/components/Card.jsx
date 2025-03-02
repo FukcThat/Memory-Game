@@ -1,19 +1,34 @@
 import Tilt from "react-parallax-tilt";
+import { motion } from "framer-motion";
 import "./styles/Card.css";
 
-export default function Card({ character }) {
+export default function Card({ character, onClick }) {
   return (
     <Tilt
       glareEnable={true}
-      glareMaxOpacity={0.4}
+      glareMaxOpacity={0.3}
       glareColor="#ffffff"
       glarePosition="bottom"
       className="tilt"
     >
-      <div className="card">
-        <img src={character.gif} alt={character.name} className="card-image" />
+      <motion.div
+        className="card"
+        onClick={() => onClick(character.id)}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        whileHover={{ scale: 1.05 }}
+        transition={{ duration: 0.5 }}
+      >
+        <motion.img
+          src={character.gif}
+          alt={character.name}
+          className="card-image"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+        />
         <div className="card-name">{character.name}</div>
-      </div>
+      </motion.div>
     </Tilt>
   );
 }
