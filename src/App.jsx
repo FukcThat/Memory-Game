@@ -1,12 +1,18 @@
-import { useState } from "react";
 import "./styles/App.css";
+import GameBoard from "./components/GameBoard";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const handleGameOver = () => {
+    alert("Game over!");
+  };
 
   return (
     <>
-      <div>Memory Game</div>
+      <Header />
+      <GameBoard onGameOver={handleGameOver} />
+      <Footer />
     </>
   );
 }

@@ -1,6 +1,5 @@
-import Tilt from "react-parallax-tilt";
 import { motion } from "framer-motion";
-import "./styles/Card.css";
+import Tilt from "react-parallax-tilt";
 
 export default function Card({ character, onClick }) {
   return (
