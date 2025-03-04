@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import { initialCharacters } from "../data/characters";
+import "/src/styles/GameBoard.css";
 
 function shuffleArray(array) {
   return array.sort(() => Math.random() - 0.5);

@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import Tilt from "react-parallax-tilt";
+import "/src/styles/Card.css";
 
 export default function Card({ character, onClick }) {
   return (
@@ -9,13 +10,16 @@ export default function Card({ character, onClick }) {
       glareColor="#ffffff"
       glarePosition="bottom"
       className="tilt"
+      style={{
+        borderRadius: "1rem",
+        overflow: "hidden",
+      }}
     >
       <motion.div
         className="card"
         onClick={() => onClick(character.id)}
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
-        whileHover={{ scale: 1.05 }}
         transition={{ duration: 0.5 }}
       >
         <motion.img
