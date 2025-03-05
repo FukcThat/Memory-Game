@@ -15,9 +15,9 @@ export const initialCharacters = [
   },
   {
     id: 3,
-    name: "Catbus",
+    name: "Calcifer",
     gifOptions: [
-      "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FxeHZpMmJ0bTh5bzhldDFkdjc1d204NjlyM3UwYTh3ajk4bmVueiZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/KEVODnr6kaJws/giphy.gif",
+      "https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExMjJzbHN1ZWNhMTJwNGJjdHZqdGhza2UyZG02eHgyOTcxa3h5M3EwayZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/qKmWi9mfycx6E/giphy.gif",
     ],
   },
 ];
