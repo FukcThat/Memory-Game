@@ -1,20 +1,75 @@
 import "./styles/App.css";
-import GameBoard from "./components/GameBoard";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
+import StartScreen from "./screens/StartScreen";
+import GameScreen from "./screens/GameScreen";
+import { useState } from "react";
 
-function App() {
-  const handleGameOver = () => {
-    alert("Game over!");
+export default function App() {
+  const difficulties = {
+    easy: { cardCount: 3, next: "medium" },
+    medium: { cardCount: 6, next: "hard" },
+    hard: { cardCount: 12, next: "hard" },
+  };
+
+  const [gameState, setGameState] = useState("start");
+  const [score, setScore] = useState(0);
+  const [highScore, setHighScore] = useState(0);
+  const [difficulty, setDifficulty] = useState("easy");
+
+  const handleStart = (difficultyLevel) => {
+    setDifficulty(difficultyLevel);
+    setScore(0);
+    setGameState("playing");
+  };
+
+  const handleGameEnd = (result) => {
+    if (result === "won") {
+      setGameState("won");
+    } else if (result === "lost") {
+      setGameState("lost");
+    } else {
+      alert("Sorry, something went wrong and I was too lazy to fix it.");
+    }
+  };
+
+  const handleTryAgain = () => {
+    setScore(0);
+    setGameState("playing");
+  };
+
+  const handleNextLevel = () => {
+    setScore(0);
+    setDifficulty(difficulties[difficulty].next);
+    setGameState("playing");
+  };
+
+  const handleHome = () => {
+    setScore(0);
+    setHighScore(0);
+    setGameState("start");
   };
 
   return (
     <>
-      <Header />
-      <GameBoard onGameOver={handleGameOver} />
-      <Footer />
+      {gameState === "start" && (
+        <StartScreen
+          onStart={handleStart}
+          difficulties={Object.entries(difficulties)}
+        />
+      )}
+      {["playing", "won", "lost"].includes(gameState) && (
+        <GameScreen
+          gameState={gameState}
+          onGameOver={handleGameEnd}
+          onTryAgain={handleTryAgain}
+          onNextLevel={handleNextLevel}
+          onHome={handleHome}
+          difficulty={difficulties[difficulty].cardCount}
+          score={score}
+          setScore={setScore}
+          highScore={highScore}
+          setHighScore={setHighScore}
+        />
+      )}
     </>
   );
 }
-
-export default App;

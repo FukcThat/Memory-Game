@@ -1,4 +1,4 @@
-export default function GameOverModal({ onTryAgain, onHome }) {
+export default function GameLostModal({ onTryAgain, onHome }) {
   return (
     <div className="modal">
       <img src="/assets/game-over.png" alt="You Lost" />

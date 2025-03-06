@@ -13,7 +13,13 @@ function getRandomGif(character) {
   ];
 }
 
-export default function GameBoard({ onGameOver }) {
+export default function GameBoard({
+  onGameOver,
+  score,
+  setScore,
+  highScore,
+  setHighScore,
+}) {
   const [cards, setCards] = useState([]);
   const [clickedCards, setClickedCards] = useState([]);
 
@@ -25,12 +31,23 @@ export default function GameBoard({ onGameOver }) {
     setCards(shuffleArray(preparedCards));
   }, []);
 
+  useEffect(() => {
+    if (cards.length > 0 && clickedCards.length === cards.length) {
+      onGameOver("won");
+    }
+  }, [clickedCards, cards]);
+
   const handleCardClick = (id) => {
     if (clickedCards.includes(id)) {
-      onGameOver();
+      onGameOver("lost");
     } else {
       setClickedCards([...clickedCards, id]);
       setCards(shuffleArray(cards));
+      setScore(score + 1);
+
+      if (score + 1 > highScore) {
+        setHighScore(score + 1);
+      }
     }
   };
 
