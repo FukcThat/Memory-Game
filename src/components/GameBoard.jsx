@@ -15,6 +15,7 @@ function getRandomGif(character) {
 
 export default function GameBoard({
   onGameOver,
+  difficulty,
   score,
   setScore,
   highScore,
@@ -24,12 +25,14 @@ export default function GameBoard({
   const [clickedCards, setClickedCards] = useState([]);
 
   useEffect(() => {
-    const preparedCards = initialCharacters.map((char) => ({
-      ...char,
-      gif: getRandomGif(char),
-    }));
-    setCards(shuffleArray(preparedCards));
-  }, []);
+    const preparedCards = shuffleArray(initialCharacters)
+      .slice(0, difficulty)
+      .map((char) => ({
+        ...char,
+        gif: getRandomGif(char),
+      }));
+    setCards(preparedCards);
+  }, [difficulty]);
 
   useEffect(() => {
     if (cards.length > 0 && clickedCards.length === cards.length) {
