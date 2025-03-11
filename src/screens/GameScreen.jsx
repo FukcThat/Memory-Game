@@ -4,6 +4,7 @@ import GameBoard from "../components/GameBoard";
 import GameWonModal from "../components/GameWonModal";
 import GameLostModal from "../components/GameLostModal";
 import { useState } from "react";
+import { motion } from "framer-motion";
 
 export default function GameScreen({
   gameState,
@@ -23,6 +24,16 @@ export default function GameScreen({
     <>
       <div className="game-screen">
         <Header />
+
+        <motion.div
+          className="score-container"
+          animate={{ scale: [1, 1.2, 1] }}
+          transition={{ duration: 0.3 }}
+        >
+          <h2>Score: {score}</h2>
+          <h3>High Score: {highScore}</h3>
+        </motion.div>
+
         <GameBoard
           onGameOver={onGameOver}
           difficulty={difficulty}
@@ -32,6 +43,7 @@ export default function GameScreen({
           setHighScore={setHighScore}
           clickedCards={clickedCards}
           setClickedCards={setClickedCards}
+          gameState={gameState}
         />
 
         {gameState === "won" && (

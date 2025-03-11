@@ -22,6 +22,7 @@ export default function GameBoard({
   setHighScore,
   clickedCards,
   setClickedCards,
+  gameState,
 }) {
   const [cards, setCards] = useState([]);
 
@@ -43,6 +44,8 @@ export default function GameBoard({
   }, [clickedCards, cards]);
 
   const handleCardClick = (id) => {
+    if (gameState !== "playing") return;
+
     if (clickedCards.includes(id)) {
       onGameOver("lost");
     } else {
@@ -57,7 +60,7 @@ export default function GameBoard({
   };
 
   return (
-    <div className="game-board">
+    <div className={`game-board ${gameState !== "playing" ? "game-over" : ""}`}>
       {cards.map((card) => (
         <Card key={card.id} character={card} onClick={handleCardClick} />
       ))}
