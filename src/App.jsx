@@ -14,6 +14,7 @@ export default function App() {
   const [score, setScore] = useState(0);
   const [highScore, setHighScore] = useState(0);
   const [difficulty, setDifficulty] = useState("easy");
+  const [clickedCards, setClickedCards] = useState([]);
 
   const handleStart = (difficultyLevel) => {
     setDifficulty(difficultyLevel);
@@ -34,12 +35,14 @@ export default function App() {
   const handleTryAgain = () => {
     setScore(0);
     setGameState("playing");
+    setClickedCards([]);
   };
 
   const handleNextLevel = () => {
     setScore(0);
     setDifficulty(difficulties[difficulty].next);
     setGameState("playing");
+    setClickedCards([]);
   };
 
   const handleHome = () => {
@@ -68,6 +71,8 @@ export default function App() {
           setScore={setScore}
           highScore={highScore}
           setHighScore={setHighScore}
+          clickedCards={clickedCards}
+          setClickedCards={setClickedCards}
         />
       )}
     </>

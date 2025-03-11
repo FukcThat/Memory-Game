@@ -20,9 +20,10 @@ export default function GameBoard({
   setScore,
   highScore,
   setHighScore,
+  clickedCards,
+  setClickedCards,
 }) {
   const [cards, setCards] = useState([]);
-  const [clickedCards, setClickedCards] = useState([]);
 
   useEffect(() => {
     const preparedCards = shuffleArray(initialCharacters)
@@ -32,6 +33,7 @@ export default function GameBoard({
         gif: getRandomGif(char),
       }));
     setCards(preparedCards);
+    setClickedCards([]);
   }, [difficulty]);
 
   useEffect(() => {

@@ -3,6 +3,7 @@ import Footer from "../components/Footer";
 import GameBoard from "../components/GameBoard";
 import GameWonModal from "../components/GameWonModal";
 import GameLostModal from "../components/GameLostModal";
+import { useState } from "react";
 
 export default function GameScreen({
   gameState,
@@ -16,7 +17,7 @@ export default function GameScreen({
   highScore,
   setHighScore,
 }) {
-  console.log("GameScreen rendered with gameState:", gameState);
+  const [clickedCards, setClickedCards] = useState([]);
 
   return (
     <>
@@ -29,6 +30,8 @@ export default function GameScreen({
           setScore={setScore}
           highScore={highScore}
           setHighScore={setHighScore}
+          clickedCards={clickedCards}
+          setClickedCards={setClickedCards}
         />
 
         {gameState === "won" && (
