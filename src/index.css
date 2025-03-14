@@ -28,8 +28,7 @@ body {
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-  background: url("https://i.pinimg.com/originals/e3/31/d5/e331d5f2da8838fc0b19186fa0d73c20.gif")
-    no-repeat center center fixed;
+  background: url("https://i.gifer.com/JRjM.gif") no-repeat center center fixed;
   background-size: cover;
 }
 
