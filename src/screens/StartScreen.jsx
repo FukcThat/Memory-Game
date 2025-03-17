@@ -15,7 +15,13 @@ export default function StartScreen({ onStart, difficulties }) {
             key={level}
             onClick={() => onStart(level)}
           >
-            {level[0].toUpperCase() + level.slice(1)}
+            <img
+              src="src/assets/images/Leaf-Btn.png"
+              className="difficulty-btn-leaf"
+            ></img>
+            <span className="difficulty-btn-text">
+              {level[0].toUpperCase() + level.slice(1)}
+            </span>{" "}
           </button>
         ))}
       </div>
