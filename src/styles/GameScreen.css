@@ -1,3 +1,7 @@
+.game-screen {
+  height: 100dvh;
+}
+
 .score-container {
   text-align: center;
   margin: 1rem 0;

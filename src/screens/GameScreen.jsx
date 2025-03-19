@@ -5,6 +5,7 @@ import GameWonModal from "../components/GameWonModal";
 import GameLostModal from "../components/GameLostModal";
 import { useState } from "react";
 import { motion } from "framer-motion";
+import "/src/styles/GameScreen.css";
 
 export default function GameScreen({
   gameState,

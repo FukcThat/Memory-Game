@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Caveat+Brush&family=Coming+Soon&display=swap");
+
 :root {
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -31,6 +33,7 @@ body {
   background: url("src/assets/images/Background-Ghibli.jpg") no-repeat center
     center fixed;
   background-size: cover;
+  font-family: "Coming Soon", cursive;
 }
 
 h1 {
