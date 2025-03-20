@@ -15,7 +15,7 @@
 .difficulty-btn {
   position: relative;
   align-self: center;
-  width: 50%;
+  max-width: 20rem;
   background: none;
   transition: transform 0.2s ease-in-out;
 }
@@ -47,9 +47,20 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.5);
-  font-size: 1.5rem;
+  color: rgb(21, 43, 21);
+  text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+  font-size: 1.75rem;
   pointer-events: none;
+}
+
+.difficulty-btn:nth-child(1) .difficulty-btn-text {
+  transform: rotate(12deg);
+}
+.difficulty-btn:nth-child(2) .difficulty-btn-text {
+  transform: rotate(-25deg);
+}
+.difficulty-btn:nth-child(3) .difficulty-btn-text {
+  transform: rotate(-15deg);
 }
 
 .footer {
