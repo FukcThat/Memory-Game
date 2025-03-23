@@ -3,11 +3,12 @@
 }
 
 .score-container {
+  display: flex;
+  justify-content: space-between;
   text-align: center;
-  margin: 1rem 0;
-  padding: 0.5rem;
-  background: rgba(255, 255, 255, 0.2);
+  margin: 1rem 2rem;
+  padding-inline: 1.5rem;
+  background: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
-  font-size: 1.5rem;
   font-weight: bold;
 }

@@ -31,7 +31,7 @@ export default function GameScreen({
           animate={{ scale: [1, 1.2, 1] }}
           transition={{ duration: 0.3 }}
         >
-          <h2>Score: {score}</h2>
+          <h3>Score: {score}</h3>
           <h3>High Score: {highScore}</h3>
         </motion.div>
 
