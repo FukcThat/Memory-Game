@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import Card from "./Card";
 import { initialCharacters } from "../data/characters";
 import "/src/styles/GameBoard.css";
+import { motion, AnimatePresence } from "framer-motion";
 
 function shuffleArray(array) {
   return array.sort(() => Math.random() - 0.5);
@@ -32,6 +33,7 @@ export default function GameBoard({
       .map((char) => ({
         ...char,
         gif: getRandomGif(char),
+        uniqueId: `${char.id}-${Date.now()}-${Math.random()}`,
       }));
     setCards(preparedCards);
     setClickedCards([]);
@@ -49,21 +51,49 @@ export default function GameBoard({
     if (clickedCards.includes(id)) {
       onGameOver("lost");
     } else {
+      console.log(
+        "card keys before:",
+        cards.map((c) => c.id + c.gif)
+      );
+
       setClickedCards([...clickedCards, id]);
-      setCards(shuffleArray(cards));
+
       setScore(score + 1);
 
       if (score + 1 > highScore) {
         setHighScore(score + 1);
       }
+
+      setTimeout(() => {
+        const reshuffled = shuffleArray(cards).map((card) => ({
+          ...card,
+          uniqueId: crypto.randomUUID(),
+        }));
+        setCards(reshuffled);
+      }, 200);
+
+      console.log(
+        "card keys after shuffle:",
+        cards.map((c) => c.id + c.gif)
+      );
     }
   };
 
   return (
     <div className={`game-board ${gameState !== "playing" ? "game-over" : ""}`}>
-      {cards.map((card) => (
-        <Card key={card.id} character={card} onClick={handleCardClick} />
-      ))}
+      <AnimatePresence mode="sync">
+        {cards.map((card) => (
+          <motion.div
+            key={card.uniqueId}
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            exit={{ opacity: 0, scale: 0.9 }}
+            transition={{ duration: 0.3 }}
+          >
+            <Card key={card.id} character={card} onClick={handleCardClick} />
+          </motion.div>
+        ))}
+      </AnimatePresence>
     </div>
   );
 }

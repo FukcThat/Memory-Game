@@ -1,8 +1,22 @@
-# React + Vite
+# 🌿 Spirit Parade Memory
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A Studio Ghibli-themed memory card game built with React.
 
-Currently, two official plugins are available:
+## 🚀 Demo
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+[Play it on Netlify](odin-ghibli-memory.netlify.app)  
+_(Replace this link once deployed)_
+
+## 📦 Tech
+
+- [React](https://reactjs.org/)
+- [Framer Motion](https://www.framer.com/motion/)
+- [React Parallax Tilt](https://www.npmjs.com/package/react-parallax-tilt)
+- CSS
+
+## 🧠 How to Play
+
+- Click on cards without repeating
+- Cards reshuffle after each click
+- If you click the same card twice, you lose
+- Beat the game by clicking all unique cards
