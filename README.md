@@ -4,7 +4,7 @@ A Studio Ghibli-themed memory card game built with React.
 
 ## 🚀 Demo
 
-[Play it on Netlify](odin-ghibli-memory.netlify.app)
+[Play it on Netlify](https://odin-ghibli-memory.netlify.app/)
 
 ## 📦 Tech
 
