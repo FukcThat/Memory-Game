@@ -16,7 +16,7 @@ export default function StartScreen({ onStart, difficulties }) {
             onClick={() => onStart(level)}
           >
             <img
-              src="src/assets/images/Leaf-Btn.png"
+              src="/images/Leaf-Btn.png"
               className="difficulty-btn-leaf"
             ></img>
             <span className="difficulty-btn-text">
